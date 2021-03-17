@@ -2,6 +2,11 @@
   text-align: center;
 }
 
+.img{
+  width:40vw;
+  height: auto;
+}
+
 .blurred{
   filter: blur(3px)  grayscale();
 }
