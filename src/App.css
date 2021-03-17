@@ -2,11 +2,19 @@
   text-align: center;
 }
 
-.img{
+.Game img{
   width:40vw;
   height: auto;
 }
 
-.blurred{
+.easy{
+  filter: blur(3px);
+}
+
+.medium{
   filter: blur(3px)  grayscale();
+}
+
+.difficult{
+  filter: blur(6px)  grayscale();
 }

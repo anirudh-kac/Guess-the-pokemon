@@ -7,6 +7,7 @@ import useToggle from "./hooks/useToggle";
 function Game() {
     
     const [score,setScore] = useState(0);
+    const [difficulty , setDifficulty] = useState("medium");
     const [submitted,toggleSubmitted] = useToggle(false);
     const [start , toggleStart]  = useToggle(true);
     const [display , toggleDisplay] = useToggle(false);
@@ -42,7 +43,7 @@ function Game() {
         const enteredValue = input;
         setDisplayName(data.name);
         toggleDisplay();
-        if(input === data.name){
+        if(input.toUpperCase() === data.name.toUpperCase()){
             setScore(score+1);
         }else{
             setScore(0);
@@ -58,18 +59,31 @@ function Game() {
         setDisplayName("Pokemon");
     }
 
+    
+
     return (
         <div className = "Game">
             <h1 className = "Game-title">Guess The Pokemon</h1>
             <div className = "Game-scores">
                 <h2 className = "Game-score">Total Score : {score}</h2>
+                <h3 className = "Game-difficulty">{difficulty.toUpperCase()}</h3>
 
 
                 {
-                    start ? <button onClick = {initialize}>Start</button> :
+                    start ?
+                    <>
+                    <select name="difficulty" id="difficulty" onChange = {(e)=> setDifficulty(e.target.value)}>
+                        <option value="medium">Medium</option>
+                        <option value= "easy">Easy</option>
+                        <option value="hard">Hard</option>
+                    </select>
+                     <button onClick = {initialize}>Start</button> 
+
+                    </>
+                     :
 
                     <>
-                        <img src = {data.image} alt = "pokemon" className = {display ? "img" : "img blurred"}/>
+                        <img src = {data.image} alt = "pokemon" className = {display ? "img" : difficulty}/>
                         <h3>{displayName}</h3>
 
                         
