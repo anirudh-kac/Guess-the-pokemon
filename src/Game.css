@@ -1,0 +1,21 @@
+.Game .img{
+    height: 30vh;
+    width:auto;
+}
+  
+.easy{
+    filter: blur(3px);
+  }
+  
+.medium{
+    filter: blur(3px)  grayscale();
+}
+  
+.hard{
+    filter: blur(6px)  grayscale();
+}
+
+.pokemon-logo{
+    width:60vw;
+    height: auto;
+}

@@ -3,6 +3,9 @@ import React , {useState} from 'react';
 import axios from "axios";
 import useToggle from "./hooks/useToggle";
 
+import "./Game.css"
+import pokemon from "./pokemon.svg";
+
 
 function Game() {
     
@@ -65,6 +68,7 @@ function Game() {
 
     return (
         <div className = "Game">
+            <img src = {pokemon} alt = "pokemon-logo" className = "pokemon-logo"/>
             <h1 className = "Game-title">Guess The Pokemon</h1>
             <div className = "Game-scores">
                 <h2 className = "Game-score">Total Score : {score}</h2>
@@ -85,7 +89,7 @@ function Game() {
                      :
 
                     <>
-                        <img src = {data.image} alt = "pokemon" className = {display ? "img" : difficulty}/>
+                        <img src = {data.image} alt = "pokemon" className = {display ? "img" : "img "+difficulty}/>
                         <h3>{displayName.toUpperCase()}</h3>
 
                         

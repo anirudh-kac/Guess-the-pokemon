@@ -5,19 +5,3 @@
   background-color: aquamarine;
 }
 
-.Game img{
-  height: 30vh;
-  width:auto;
-}
-
-.easy{
-  filter: blur(3px);
-}
-
-.medium{
-  filter: blur(3px)  grayscale();
-}
-
-.difficult{
-  filter: blur(6px)  grayscale();
-}
