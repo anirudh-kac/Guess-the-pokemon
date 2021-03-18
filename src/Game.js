@@ -61,10 +61,10 @@ function Game() {
     }
 
     const nextPoke = () =>{
+        getRandom();
         toggleDisplay();
         toggleSubmitted();
         setInput("");
-        getRandom();
         setDisplayName("Pokemon");
     }
 
