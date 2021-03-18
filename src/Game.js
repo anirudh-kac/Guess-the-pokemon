@@ -18,7 +18,7 @@ function Game() {
     const getRandom =()=>{
         const rand = Math.floor(Math.random()*500);
         const url = `https://pokeapi.co/api/v2/pokemon/${rand}/`
-        const res = axios.get(url).then(res => {
+        axios.get(url).then(res => {
             const data = {
                 image : res.data.sprites.front_default,
                 name : res.data.name
@@ -43,10 +43,12 @@ function Game() {
         const enteredValue = input;
         setDisplayName(data.name);
         toggleDisplay();
-        if(input.toUpperCase() === data.name.toUpperCase()){
+        if(enteredValue.toUpperCase() === data.name.toUpperCase()){
             setScore(score+1);
+            setDisplayName(`Yes You Are Right!!! This is ${data.name}`);
         }else{
             setScore(0);
+            setDisplayName(`Nope!!! This is ${data.name}`);
         }
         setInput("");
     }
@@ -84,12 +86,12 @@ function Game() {
 
                     <>
                         <img src = {data.image} alt = "pokemon" className = {display ? "img" : difficulty}/>
-                        <h3>{displayName}</h3>
+                        <h3>{displayName.toUpperCase()}</h3>
 
                         
                         {submitted ? <button onClick = {nextPoke}>Next</button>:
                             <>
-                            <input value = {input} type = "text" onChange = {handleChange}/> <button onClick = {handleSubmit} >Submit </button>
+                            <input placeholder = "Enter Your Guess" value = {input} type = "text" onChange = {handleChange}/> <button onClick = {handleSubmit} >Submit </button>
                             </>
                         }
 
