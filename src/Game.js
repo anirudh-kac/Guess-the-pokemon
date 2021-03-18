@@ -47,7 +47,11 @@ function Game() {
         setDisplayName(data.name);
         toggleDisplay();
         if(enteredValue.toUpperCase() === data.name.toUpperCase()){
-            setScore(score+1);
+            if(difficulty === "easy")
+                setScore(score+1);
+            else if(difficulty === "medium")
+                setScore(score+2);
+            else setScore(score+3);
             setDisplayName(`Yes You Are Right!!! This is ${data.name}`);
         }else{
             setScore(0);
